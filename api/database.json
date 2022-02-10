@@ -10,6 +10,24 @@
     }
   ],
   "completions": [
+    {
+      "requestId": 3,
+      "plumberId": 1,
+      "date_created": 1644510464689,
+      "id": 1
+    },
+    {
+      "requestId": 1,
+      "plumberId": 1,
+      "date_created": 1644510480753,
+      "id": 2
+    },
+    {
+      "requestId": 4,
+      "plumberId": 2,
+      "date_created": 1644510612974,
+      "id": 3
+    }
   ],
   "requests": [
     {
@@ -32,6 +50,13 @@
       "budget": "400",
       "neededBy": "2008-09-08",
       "id": 3
+    },
+    {
+      "description": "New sink",
+      "address": "15",
+      "budget": "500",
+      "neededBy": "2022-02-17",
+      "id": 4
     }
   ]
 }

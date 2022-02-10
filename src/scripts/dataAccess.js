@@ -92,14 +92,7 @@ export const getCompletions = () => {
 export const getRequests = () => {
     const completions = getCompletions()
     const requests = applicationState.requests.map(request => ({...request}))
-    const sortedRequests = requests.sort((x, y) => {
-        const xCompleted = completions.find(completion => completion.requestId === x.id)
-        const yCompleted = completions.find(completion => completion.requestId === y.id)
-        return (xCompleted === yCompleted)? 0 : xCompleted? -1 : 1;
-    }) 
-    sortedRequests.reverse()
-
-    const taggedRequests = sortedRequests.map(request => {
+    const taggedRequests = requests.map(request => {
         if(completions.find(completion => completion.requestId === request.id)){
             request.completed = true
         } else {
@@ -107,6 +100,12 @@ export const getRequests = () => {
         }
         return request
     })
+    // sort by completion - completed should be last
+    taggedRequests.sort((current, next) => {
+        return (current.completed - next.completed)
+    }) 
+    //sortedRequests.reverse()
+
 
     return taggedRequests
 }
